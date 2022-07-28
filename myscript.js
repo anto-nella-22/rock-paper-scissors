@@ -13,3 +13,16 @@ function getComputerChoice() {
     //choice.length takes all the elements in the choice array into consideration
     return choice[Math.floor(Math.random() * choice.length)];
 }
+
+
+//create function that plays 1 round 
+//create two parameters inside function: playerSelection and computerSelection
+//create variables for the parameters
+//return a string that declares the winner of the round
+//make playerSelection parameter case-insensitive
+function playRound(playerSelection, computerSelection) {
+    playerSelection = prompt('Your turn').toLowerCase();
+    computerSelection = getComputerChoice();
+    alert('You chose ' + playerSelection + ' and your opponent chose ' + computerSelection);
+    alert('You lose! Paper beats Rock');
+}
