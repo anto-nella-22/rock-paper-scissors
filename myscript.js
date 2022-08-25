@@ -48,32 +48,48 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
 
     //displays the choices of players
-    console.log('You chose ' + playerSelection + ' and your opponent chose ' + computerSelection);
+    let text = "You chose "+ playerSelection + " and your opponent chose " + computerSelection;
+    document.querySelector('.results').textContent = text;
+    //results.textContent = "You chose {playerSelection} and your opponent chose {computerSelection}";
 
     //compares the two values from the round
     //adds a point to the player that wins the round
     //displays score of the current round
     if (playerSelection === 'Paper' && computerSelection === 'Rock') {
         ++playerScore;
-        console.log('Player 1 : ' + playerScore + ' Computer : ' + computerScore);
+        let firstOption = 'Player 1 : ' + playerScore + ' Computer : ' + computerScore;
+        document.querySelector('.score').textContent = firstOption;
+
     } else if (playerSelection === 'Rock' && computerSelection === 'Scissors'){
         ++playerScore;
-        console.log('Player 1 : ' + playerScore + ' Computer : ' + computerScore);
+        let secondOption = 'Player 1 : ' + playerScore + ' Computer : ' + computerScore;
+        document.querySelector('.score').textContent = secondOption;
+
     } else if (playerSelection === 'Scissors' && computerSelection === 'Paper'){
         ++playerScore;
-        console.log('Player 1 : ' + playerScore + ' Computer : ' + computerScore);
+        let thirdOption = 'Player 1 : ' + playerScore + ' Computer : ' + computerScore;
+        document.querySelector('.score').textContent = thirdOption;
+
     } else if (playerSelection === 'Rock' && computerSelection === 'Paper'){
         ++computerScore;
-        console.log('Player 1 : ' + playerScore + ' Computer : ' + computerScore);
+        let fourthOption = 'Player 1 : ' + playerScore + ' Computer : ' + computerScore;
+        document.querySelector('.score').textContent = fourthOption;
+
     } else if (playerSelection === 'Scissors' && computerSelection === 'Rock'){
         ++computerScore;
-        console.log('Player 1 : ' + playerScore + ' Computer : ' + computerScore);
+        let fifthOption = 'Player 1 : ' + playerScore + ' Computer : ' + computerScore;
+        document.querySelector('.score').textContent = fifthOption;
+
     } else if (playerSelection === 'Paper' && computerSelection === 'Scissors'){
         ++computerScore;
-        console.log('Player 1 : ' + playerScore + ' Computer : ' + computerScore);
+        let sixthOption = 'Player 1 : ' + playerScore + ' Computer : ' + computerScore;
+        document.querySelector('.score').textContent = sixthOption;
+
     } else {
         //no points are added due to a tie
-        console.log('Player 1 : ' + playerScore + ' Computer : ' + computerScore);
+        let lastOption = 'Player 1 : ' + playerScore + ' Computer : ' + computerScore;
+        document.querySelector('.score').textContent = lastOption;
+
     }
 
     
