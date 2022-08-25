@@ -18,13 +18,33 @@ function getComputerChoice() {
 let playerScore = 0;
 let computerScore = 0;
 
+//add event listener that calls playRound function
+//create new variable to store choice made by player
+let playerItem;
+//create new variable that selects all buttons
+const btns = document.querySelectorAll('button');
+//apply event listener to all buttons
+btns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        //create new variable to store event value
+        const itemTarget = e.target.value;
+        //store value obtained by prevoius variable 
+        playerItem = itemTarget;
+        //calls the function
+        playRound();
+    });
+
+});
+
 //create function that plays 1 round 
 //create two parameters inside function: playerSelection and computerSelection
 //create variables for the parameters
 //return a string that declares the winner of the round
 //make playerSelection parameter case-insensitive
 function playRound(playerSelection, computerSelection) {
-    playerSelection = prompt('Your turn').toLowerCase();
+    //get value from result of eventlistener variable
+    playerSelection = playerItem;
+
     computerSelection = getComputerChoice();
 
     //displays the choices of players
@@ -33,22 +53,22 @@ function playRound(playerSelection, computerSelection) {
     //compares the two values from the round
     //adds a point to the player that wins the round
     //displays score of the current round
-    if (playerSelection === 'paper' && computerSelection === 'Rock') {
+    if (playerSelection === 'Paper' && computerSelection === 'Rock') {
         ++playerScore;
         console.log('Player 1 : ' + playerScore + ' Computer : ' + computerScore);
-    } else if (playerSelection === 'rock' && computerSelection === 'Scissors'){
+    } else if (playerSelection === 'Rock' && computerSelection === 'Scissors'){
         ++playerScore;
         console.log('Player 1 : ' + playerScore + ' Computer : ' + computerScore);
-    } else if (playerSelection === 'scissors' && computerSelection === 'Paper'){
+    } else if (playerSelection === 'Scissors' && computerSelection === 'Paper'){
         ++playerScore;
         console.log('Player 1 : ' + playerScore + ' Computer : ' + computerScore);
-    } else if (playerSelection === 'rock' && computerSelection === 'Paper'){
+    } else if (playerSelection === 'Rock' && computerSelection === 'Paper'){
         ++computerScore;
         console.log('Player 1 : ' + playerScore + ' Computer : ' + computerScore);
-    } else if (playerSelection === 'scissors' && computerSelection === 'Rock'){
+    } else if (playerSelection === 'Scissors' && computerSelection === 'Rock'){
         ++computerScore;
         console.log('Player 1 : ' + playerScore + ' Computer : ' + computerScore);
-    } else if (playerSelection === 'paper' && computerSelection === 'Scissors'){
+    } else if (playerSelection === 'Paper' && computerSelection === 'Scissors'){
         ++computerScore;
         console.log('Player 1 : ' + playerScore + ' Computer : ' + computerScore);
     } else {
@@ -60,9 +80,12 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
+
+
 //create function called game
 //this function will play the game for 5 rounds
 //it will keep the score and report the winner/loser at the end
+/*
 function game() {
     
     for (let i = 0; i < 5; i++) {
@@ -77,3 +100,8 @@ function game() {
         console.log('A tie!');
     }
 }
+*/
+
+
+
+
