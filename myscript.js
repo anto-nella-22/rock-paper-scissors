@@ -32,8 +32,8 @@ btns.forEach((btn) => {
         playerItem = itemTarget;
         //calls the function
         playRound();
+        game();
     });
-
 });
 
 //create function that plays 1 round 
@@ -51,6 +51,7 @@ function playRound(playerSelection, computerSelection) {
     let text = "You chose "+ playerSelection + " and your opponent chose " + computerSelection;
     document.querySelector('.results').textContent = text;
     //results.textContent = "You chose {playerSelection} and your opponent chose {computerSelection}";
+
 
     //compares the two values from the round
     //adds a point to the player that wins the round
@@ -91,32 +92,36 @@ function playRound(playerSelection, computerSelection) {
         document.querySelector('.score').textContent = lastOption;
 
     }
-
-    
 }
 
+//shows game over and restarts game
+function restartGame() {
+    confirm("GAME OVER");
+    window.location.reload();
+}
 
-
-
-//create function called game
-//this function will play the game for 5 rounds
-//it will keep the score and report the winner/loser at the end
-/*
+//stops when one player reaches 5 points
+//compares final score and displays the winner
 function game() {
-    
-    for (let i = 0; i < 5; i++) {
-        playRound();
+      
+    if (playerScore == 5) {
+        let playerWins = 'Player 1 wins!';
+        document.querySelector('.winner').textContent = playerWins;
+        setTimeout(restartGame, 1250);
+    } else if (computerScore == 5) {
+        let compWins = 'Computer wins!';
+        document.querySelector('.winner').textContent = compWins;
+        setTimeout(restartGame, 1250);
+    } else if (computerScore == 5 && playerScore == 5){
+        let noWinner = 'A tie!';
+        document.querySelector('.winner').textContent = noWinner;
+        setTimeout(restartGame, 1250);
+    } 
+    else if (playerScore > 5 || computerScore > 5) {
+        setTimeout(restartGame, 1250);
     }
-    //compares final score and displays the winner
-    if (playerScore > computerScore) {
-        console.log('Player 1 wins!');
-    } else if (computerScore > playerScore) {
-        console.log('Computer wins!');
-    } else {
-        console.log('A tie!');
-    }
+
 }
-*/
 
 
 
